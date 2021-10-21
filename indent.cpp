@@ -8,6 +8,12 @@ std::string removeLeadingSpaces(std::string str);
 int main(){
   std::ifstream badFile("bad-code.cpp");
   std::string line = "";
+
+  /* Task A */
+  std::string taskAUnindentedString;
+
+  /* Task B */
+  std::string taskBIndentedString;
   int openBraces = 0;
   int closeBraces = 0;
 
@@ -16,6 +22,7 @@ int main(){
 
   while(getline(badFile, line)){
       std::string unindented = removeLeadingSpaces(line);
+      taskAUnindentedString += unindented + "\n";
       int remainingBraces = openBraces - closeBraces;
 
       //adding tabs
@@ -43,10 +50,10 @@ int main(){
       //printing of output
       //std::cout << tabs.length() << "  ";
       if (localClose > 0){ //--> if there is } before a {, 1 less tab is needed
-        std::cout << tabs.substr(0, tabs.length()-1) + unindented << std::endl; //substring to take 1 less tab
+        taskBIndentedString += tabs.substr(0, tabs.length()-1) + unindented + "\n"; //substring to take 1 less tab
         file << tabs.substr(0, tabs.length()-1) + unindented << std::endl;
       } else {
-        std::cout << tabs + unindented << std::endl; //--> indent normally
+        taskBIndentedString +=  tabs + unindented + "\n"; //--> indent normally
         file << tabs + unindented << std::endl;
       }
 
@@ -57,6 +64,13 @@ int main(){
 
   }
   file.close();
+
+  //Printing output for Task A
+  std::cout << "-------------------Task A (Unindented)---------------" << std::endl;
+  std::cout << taskAUnindentedString << std::endl;
+  //Printing output for Task B
+  std::cout << "-------------------Task B (Indented)---------------" << std::endl;
+  std::cout << taskBIndentedString;
   return 0;
 }
 
