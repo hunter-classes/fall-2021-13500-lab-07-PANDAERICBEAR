@@ -7,7 +7,7 @@
 * GitHub username: PANDAERICBEAR
 
 * Notes:
-After running the main target `make main`. Running the executable `./main` will output the correctly indented code to the console, and also saves it to a "fixed.cpp" file. 
+After running the main target `make main`. Running the executable `./main` will output the correctly indented code to the console and also saves it to a "fixed.cpp" file. 
 
 
 * General instructions:
