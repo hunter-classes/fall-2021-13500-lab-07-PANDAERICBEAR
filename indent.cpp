@@ -84,6 +84,7 @@ int countChar(std::string line, char c){
   return counter;
 }
 
+//Removes all leading spaces one every line
 std::string removeLeadingSpaces(std::string str){
   bool doneWithSpaces = false;
   std::string result;
